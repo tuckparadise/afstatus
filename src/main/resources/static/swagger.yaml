@@ -1,0 +1,51 @@
+---
+openapi: "3.0.1"
+info:
+  title: "CCStatusTracking"
+  description: "CC Status Tracking"
+  version: "1.0.0"
+  extensions: {}
+servers:
+- url: "/rhb/api/ccstatustracking"
+paths:
+  /status:
+    post:
+      summary: "CC Status Tracking"
+      description: "CC Status Tracking"
+      operationId: "CC Status Tracking"
+      parameters:
+      - name: "Ocp-Apim-Subscription-Key"
+        in: "header"
+        description: "Partner Subscription Key"
+        required: true
+        schema:
+          type: "string"
+          extensions: {}
+          exampleSetFlag: false
+        extensions: {}
+      requestBody:
+        description: "body"
+        content:
+          application/json:
+            schema:
+              $ref: "http://localhost:8089/admin/swagger-proxy/get?url=projects/RHBMAP/repos/rhb-api-models/raw/CCReqBody.yaml?at=CCReqBody#/components/schemas/CCReqBody"
+              exampleSetFlag: false
+            exampleSetFlag: false
+        required: true
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "http://localhost:8089/admin/swagger-proxy/get?url=projects/RHBMAP/repos/rhb-api-models/raw/CCStatusfacilityResModel.yaml?at=CCStatusfacilityResModel#/components/schemas/CCStatusfacilityResModel"
+                extensions: {}
+                exampleSetFlag: false
+              exampleSetFlag: false
+          extensions: {}
+      extensions:
+        x-codegen-request-body-name: "CCReqBody"
+    extensions: {}
+components: {}
+extensions:
+  x-original-swagger-version: "2.0"
